@@ -1,0 +1,31 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="261" border="1" class="table table-bordered ">
+    <tr>
+      <td width="81">Bloodgroup</td>
+      <td width="77">Details</td>
+      <td width="81">&nbsp;</td>
+    </tr>
+{% for i in val %}
+    <tr>
+      <td height="87">{{ i.bloodgroup }}</td>
+      <td>{{ i.details  }}</td>
+      <td><p><a href="/Updateblood/{{ i.id }}"class="btn btn-Warning">update</a></p>
+      <p><a href="/deleteblood/{{ i.id }}"class="btn btn-danger">delete</a></p></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="3"><label>
+        <div align="center">
+         <a href="addblood#about"class="btn btn-primary">add</a>
+          </div>
+      </label></td>
+    </tr>
+
+  </table>
+</form>
+</body>
+{% endblock %}

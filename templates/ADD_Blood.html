@@ -1,0 +1,23 @@
+{% extends 'hospitalindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/sendrequest1">
+  <table class="table table-bordered">
+    <tr>
+      <td width="77">Request</td>
+      <td width="107"><label>
+        <input type="text" name="textfield" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

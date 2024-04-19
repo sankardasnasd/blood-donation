@@ -1,0 +1,42 @@
+{% extends 'hospitalindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewuserssearch#about">
+  <p>&nbsp;</p>
+  <table class="table table-bordered">
+    <tr>
+      <td colspan="7">Search users
+        <label>
+        <input type="name" name="textfield" required/>
+        <input type="submit" name="Submit" value="search"class="btn btn-Secondary" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td>age</td>
+      <td>gender</td>
+      <td>address</td>
+      <td>phone</td>
+      <td>email</td>
+      <td>bloodgroup</td>
+    </tr>
+            {% for i in val %}
+
+    <tr>
+      <td height="121">&nbsp;{{ i.firstname }} {{ i.lastname }}</td>
+      <td>{{ i.age }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{i.place }} {{ i.post }} {{ i.pin }}</td>
+      <td>&nbsp;{{ i.phonno }}</td>
+      <td>{{ i.email }}</td>
+      <td>&nbsp;{{ i.BLOOD.bloodgroup  }}</td>
+    </tr>
+            {% endfor %}
+
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}
+

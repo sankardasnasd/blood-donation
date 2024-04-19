@@ -1,0 +1,30 @@
+{% extends 'hospitalindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/addbloodcode">
+  <table width="267" border="1" class="table table-bordered ">
+    <tr>
+      <td width="92" height="58">Blood Group</td>
+      <td width="159"><label>
+        <input type="text" name="textfield" class="form-control" required></input>
+      </label></td>
+    </tr>
+      <tr>
+      <td width="92" height="58">Details</td>
+      <td width="159"><label>
+        <input type="text" name="textfield2"  class="form-control" required></input>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" class="btn btn-info" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'hospitalindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/viewcomplaintssearch#about">
+  <table width="337" border="1" class="table table-bordered ">
+    <tr>
+      <td colspan="5"><label>
+        <div align="center">
+          <input type="date" name="textfield" required/>
+          <input type="submit" name="Submit" value="Search"class="btn btn-secondary"/>
+          </div>
+      </label></td>
+    </tr>
+    <tr>
+      <td width="33">Username</td>
+      <td width="33">Complaint</td>
+      <td width="33">Date</td>
+      <td width="33">Hospital</td>
+      <td width="171">&nbsp;</td>
+    </tr>
+       {% for i in val %}
+    <tr>
+      <td height="76">&nbsp;{{ i.USER.firstname  }}</td>
+      <td>{{ i.complaint  }}</td>
+      <td>{{ i.date }}</td>
+      <td>&nbsp;{{ i.HOSPITAL.name }}</td>
+      <td>{% if i.replay == 'pending' %}<a href="Reply/{{ i.id }}#get-started">Reply</a>
+      {% else %}{{ i.replay }}{% endif %}</td>
+    </tr>
+        {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

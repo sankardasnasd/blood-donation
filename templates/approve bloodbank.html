@@ -1,0 +1,38 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="519" height="193" border="1" class="table table-bordered">
+    <tr>
+      <td width="73" height="36">Name</td>
+      <td width="99">Address</td>
+
+      <td width="75">Phone</td>
+      <td width="65">Email</td>
+      <td width="65">Hospital</td>
+      <td width="65">&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.name }}</td>
+      <td>&nbsp;{{i.place }} {{ i.post }} {{ i.pin }}</td>
+
+      <td>{{ i.phonno }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td>&nbsp;{{ i.HOSPITAL.name }}</td>
+       {% if i.LOGIN.type == 'pending' %}
+      <td><p><a href="acceptbloodbank/{{i.LOGIN.id}}" class="btn btn-success">Accept</a></p><br>
+          <p><a href="rejectbloodbank/{{ i.LOGIN.id }}" class="btn btn-danger">Reject</a></td>
+
+          {% elif i.LOGIN.type == 'blood bank' %}
+         <td>ACCEPTED</td>
+      {% else %}
+          <td>REJECTED</td>
+      {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+<p>&nbsp;</p>
+</body>
+{% endblock %}

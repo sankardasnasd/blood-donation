@@ -1,0 +1,32 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/ViewFeedbacksearch#services">
+  <table class="table table-bordered">
+    <tr>
+      <td colspan="4"><label>
+        <input type="date" name="textfield" value="{{ dt }}" requird />
+        <input type="submit" name="Submit" value="search" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td>Hospital</td>
+      <td>Feedback</td>
+      <td>date</td>
+    </tr>
+      {% for i in val1 %}
+    <tr>
+      <td>{{ i.USER.firstname }} {{ i.USER.lastname }}</td>
+      <td>&nbsp;{{ i.HOSPITAL.name }}</td>
+      <td>{{ i.feedback }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <label></label>
+</form>
+</body>
+{% endblock %}
+

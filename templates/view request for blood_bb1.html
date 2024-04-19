@@ -1,0 +1,32 @@
+{% extends 'bloodindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table  border="1" class="table table-bordered ">
+    <tr>
+
+
+      <td >User</td>
+      <td >Phone</td>
+      <td >Email</td>
+
+      <td >Date</td>
+      <td >Status</td>
+
+    </tr>
+                {% for i in val %}
+    <tr>
+
+      <td >{{ i.USER.firstname }} {{ i.USER.lastname }}</td>
+        <td>&nbsp;{{ i.USER.phonno }}</td>
+      <td>&nbsp;{{ i.USER.email }}</td>
+
+      <td>&nbsp;{{ i.date }}</td>
+        <td>{% if i.status == 'pending' %}<a href="/accept/{{ i.id }}">Accept</a><br> <a href="/reject/{{ i.id }}">Reject</a> {% else %}{{ i.status }} {% endif %}</td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

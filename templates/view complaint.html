@@ -1,0 +1,27 @@
+{% extends 'hospitalindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/sendcomplaintandviewreply#about">
+  <table  class="table table-bordered ">
+    <tr>
+      <td>Username</td>
+      <td>Complaint </td>
+      <td>Date</td>
+      <td>Reply</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.USER.firstname  }}</td>
+      <td>{{ i.complaint  }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{% if i.replay == 'pending' %}<a href="Reply/{{ i.id }}#get-started">Reply</a>
+      {% else %}{{ i.replay }}{% endif %}</td>
+    </tr>
+     {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}
+

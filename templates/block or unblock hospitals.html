@@ -1,0 +1,33 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="378" height="168" border="1" class="table table-bordered " >
+    <tr>
+      <td width="43">name</td>
+      <td width="67">address</td>
+
+      <td width="50">phone</td>
+      <td width="61">email</td>
+              <td width="53">location</td>
+      <td width="64">&nbsp;</td>
+    </tr>
+      {% for i in val2 %}
+    <tr>
+      <td>{{ i.name }}</td>
+      <td>&nbsp;{{i.place }} {{ i.post }} {{ i.pin }}</td>
+      <td>{{i.phonno }}</td>
+      <td>{{ i.email }}</td>
+      <td>&nbsp;<a href="https://maps.google.com/maps?q={{ i.latitude }},{{ i.longitude }}" class="btn btn-primary">track</a></td>
+      <td>{% if i.LOGIN.type == 'hospital' %}<p><a href="blockhospital/{{i.LOGIN.id}}#about" class="btn btn-danger">block</a></p>
+          {%  elif  i.LOGIN.type == 'block'%}
+      <p><a href="unblockhospital/{{i.LOGIN.id}}#about"  class="btn btn-warning">unblock</a></p></td>
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

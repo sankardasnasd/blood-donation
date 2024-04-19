@@ -1,0 +1,40 @@
+{% extends 'bloodindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/searchbloodsearch#get-started">
+  <table width="299" border="1" class="table table-bordered ">
+    <tr>
+        <td colspan="1">Search Blood</td>
+        <td colspan="1">
+
+            <select name="b" required>
+                <option value="">Select</option>
+                {% for i in val %}
+                    <option value="{{ i.id }}" {% if i.id == b %} selected {% endif %}>{{ i.bloodgroup }}</option>
+                {% endfor %}
+            </select>
+
+        </td>
+        <td>
+      <input type="submit" value="Search" class="btn btn-primary">
+      </td>
+    </tr>
+    <tr>
+      <td width="71">Name</td>
+      <td width="66">Phone No</td>
+      <td width="64">Email</td>
+
+    </tr>
+      {% for i in val1 %}
+    <tr>
+      <td height="96">&nbsp;{{ i.firstname }} {{ i.lastname }}</td>
+      <td>{{ i.phonno  }}</td>
+      <td>&nbsp;{{ i.email  }}</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

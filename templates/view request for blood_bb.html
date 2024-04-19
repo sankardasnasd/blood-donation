@@ -1,0 +1,33 @@
+{% extends 'bloodindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table  border="1" class="table table-bordered ">
+    <tr>
+      <td >Blood Group</td>
+      <td >No of Units</td>
+      <td >User</td>
+      <td >Phone</td>
+      <td >Email</td>
+      <td >Details</td>
+      <td >Date</td>
+      <td >Status</td>
+        <td></td>
+    </tr>
+                {% for i in val %}
+    <tr>
+      <td >{{ i.blood.bloodgroup }}</td>
+      <td >{{ i.count }}</td>
+      <td >{{ i.USER.firstname }} {{ i.USER.lastname }}</td>
+        <td>&nbsp;{{ i.USER.phonno }}</td>
+      <td>&nbsp;{{ i.USER.email }}</td>
+      <td>&nbsp;{{ i.details }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+        <td>{{ i.status }}</td>
+    <td><a href="/sentres/{{ i.id }}" class="btn btn-warning">Respond</a> </td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,46 @@
+
+{% extends 'hospitalindex.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" action="">{% csrf_token %}
+    <table class="table pull-left">
+    <tr>
+        <th>Blood Group</th>
+        <th><select required class="form-control">
+            <option VALUE="">----SELECT---</option>
+            {% for i in data %}
+                <option value="{{ i.id }}">{{ i.bloodgroup }}</option>
+            {% endfor %}
+        </select></th>
+        <th><input type="submit" value="Search" class="btn btn-success"></th>
+    </tr>
+
+</table>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Sl No</th>
+        <th>Bank</th>
+        <th></th>
+    </tr>
+    {% for i in a %}
+    <tr>
+        <th>{{ forloop.counter }}</th>
+        <th>{{ i.name }}</th>
+{#        <th><a href="" class="btn btn-info">Request</a> </th>#}
+    </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+</html>
+{% endblock %}

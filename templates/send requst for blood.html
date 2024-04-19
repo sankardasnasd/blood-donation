@@ -1,0 +1,31 @@
+{% extends 'hospitalindex.html' %}
+{% block body %}
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/sendrequstforblood#about">
+  <table width="240" height="134" border="1" class="table table-bordered" >
+    <tr>
+      <td width="40">blood</td>
+      <td width="43">details</td>
+      <td width="39">status</td>
+      <td width="90">&nbsp;</td>
+    </tr>
+       {% for i in val %}
+    <tr>
+      <td>{{ i.blood }}</td>
+      <td>&nbsp;{{ i.details }}</td>
+      <td>{{ i.status }}</td>
+      <td><label>
+        <a href="sendrequest1/{{ i.id }}#get-started"> send request</a>
+      </label></td>
+    </tr>
+         {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}
